@@ -1,0 +1,4 @@
+tests/cache/*
+demos/firsttests/cache/*
+Thumbs.db
+!index.html
