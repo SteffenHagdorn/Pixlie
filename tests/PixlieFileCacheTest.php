@@ -37,6 +37,14 @@
 
   class PixlieFileCacheTest extends PHPUnit_Framework_TestCase
   {
+    public function setUp() {
+      // Clear the cache dir before running the tests
+      foreach(glob("cache/*") as $file) {
+        if(strpos($file, 'index.html') === false) {
+          unlink($file);
+        }
+      }
+    }
 
     /**
      * @test
@@ -48,7 +56,7 @@
       $renderOptions = new PixlieRenderOptions();
       $renderOptions->setOutputType(PixlieRenderOptions::PNG);
       $image = new PixlieImage($sourceImage,$renderOptions);
-      $this->assertTrue($cache->isCached($image));
+      $this->assertFalse($cache->isCached($image));
     }
 
   }
