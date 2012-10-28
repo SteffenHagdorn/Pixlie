@@ -93,11 +93,13 @@
       switch($imageInfo['mime']){
         case 'image/jpg': $this->_srcType = PixlieRenderOptions::JPG;
                           break;
+        case 'image/jpeg':$this->_srcType = PixlieRenderOptions::JPG;
+                          break;
         case 'image/png': $this->_srcType = PixlieRenderOptions::PNG;
                           break;
         case 'image/gif': $this->_srcType = PixlieRenderOptions::GIF;
                           break;
-        default:          throw new PixlieException('The file type of the source image is not supported.');
+        default:          throw new PixlieException('The file type '.$imageInfo['mime'].' of the source image is not supported.');
                           break;
       }
     }
