@@ -108,7 +108,7 @@
     private function calculateDimensionsWidthFixed()
     {
       $this->_width  = $this->getRenderOptions()->getWidth();
-      $newHeight = ($this->getSourceImage()->getWidth() / $this->getSourceImage()->getHeight()) * $this->_width;
+      $newHeight = $this->getSourceImage()->getHeight() / $this->getSourceImage()->getWidth() * $this->_width;
       if($this->getRenderOptions()->getMin() !== PixlieRenderOptions::AUTO AND $newHeight < $this->getRenderOptions()->getMin()){
         $newHeight = $this->getRenderOptions()->getMin();
       }
@@ -125,7 +125,7 @@
     private function calculateDimensionsHeightFixed()
     {
       $this->_height = $this->getRenderOptions()->getHeight();
-      $newWidth = ($this->getSourceImage()->getHeight() / $this->getSourceImage()->getWidth()) * $this->_height;
+      $newWidth = $this->getSourceImage()->getWidth() / $this->getSourceImage()->getHeight() * $this->_height;
       if($this->getRenderOptions()->getMin() !== PixlieRenderOptions::AUTO AND $newWidth < $this->getRenderOptions()->getMin()){
         $newWidth = $this->getRenderOptions()->getMin();
       }
